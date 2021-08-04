@@ -1,0 +1,92 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int arr[100];
+int top=-1;
+void push(int value)
+{
+    top+=1;
+    arr[top]=value;
+}
+
+int pop()
+{
+    return arr[top--];
+}
+
+void enqueue(int value)
+{
+    top+=1;
+    arr[top]=value;
+
+}
+int dequeue()
+{
+    int temp=arr[0];
+    for(int i=0; i<top; i++)
+    {
+        arr[i]= arr[i+1];
+    }
+    top--;
+    return temp;
+
+}
+int size()
+{
+    return top+1;
+}
+
+bool isEmpty()
+{
+    if(top==-1)
+    {
+        return true;
+    }
+    else return false;
+}
+
+
+
+
+int main()
+{
+    while(true)
+    {
+        int choice;
+        cin>>choice;
+        switch(choice)
+        {
+        case 1:
+            int push1;
+            cin>>push1;
+            push(push1);
+            cout<<"push_done"<<endl;
+            break;
+        case 2:
+            cout<<pop()<<endl;
+            cout<<"pop"<<endl;
+            break;
+        case 3:
+            int push2;
+            cin>>push2;
+            enqueue(push2);
+            cout<<"enqueue done"<<endl;
+            break;
+        case 4:
+            cout<<dequeue()<<endl;
+            cout<<"dequeue"<<endl;
+            break;
+        case 5:
+            cout<<size()<<endl;
+            cout<<"size"<<endl;
+            break;
+        case 6:
+            cout<<isEmpty()<<endl;
+            cout<<"isEmpty"<<endl;
+            break;
+        case 7:
+            break;
+        }
+    }
+
+}
